@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Portfolio | Your Name</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080812;
+    color: white;
+    overflow-x: hidden;
+}
+
+:root {
+    --purple: #a855f7;
+    --blue: #6366f1;
+    --text: #a1a1aa;
+    --card: #12121e;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,18,0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+nav {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    background: linear-gradient(90deg,#a855f7,#6366f1);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    animation: slideIn 1s ease;
+}
+
+.tag {
+    color: var(--purple);
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 75px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#a855f7,#6366f1);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 550px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.primary {
+    background: linear-gradient(90deg,#a855f7,#6366f1);
+    color: white;
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px #a855f744;
+}
+
+.secondary {
+    border: 1px solid #ffffff30;
+    color: white;
+}
+
+.secondary:hover {
+    background: white;
+    color: black;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    width: 330px;
+    height: 380px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,#a855f7,#6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    box-shadow: 0 0 80px #a855f733;
+    animation: float 4s infinite ease-in-out;
+}
+
+.glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #6366f1;
+    filter: blur(180px);
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* SECTION */
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.section-title span {
+    color: var(--purple);
+}
+
+.section-title p {
+    color: var(--text);
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-box {
+    background: var(--card);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid #ffffff10;
+}
+
+.about-box h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.about-box p {
+    color: var(--text);
+    line-height: 1.9;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.stat {
+    background: var(--card);
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #ffffff10;
+}
+
+.stat h3 {
+    font-size: 35px;
+    color: var(--purple);
+}
+
+.stat p {
+    color: var(--text);
+    margin-top: 10px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.skill-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ffffff10;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple);
+}
+
+.skill-card h3 {
+    margin-bottom: 20px;
+}
+
+.skill {
+    margin: 20px 0;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.skill-name span:last-child {
+    color: var(--purple);
+}
+
+.progress {
+    height: 7px;
+    background: #292938;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    background: linear-gradient(90deg,#a855f7,#6366f1);
+    width: 0;
+    transition: width 1.5s;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #ffffff10;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple);
+}
+
+.project-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: linear-gradient(135deg,#25153f,#131b43);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.project-info a {
+    display: inline-block;
+    color: var(--purple);
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* SERVICES */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid #ffffff10;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    background: #1b1b2d;
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* CONTACT */
+
+.contact {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact p {
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: var(--card);
+    color: white;
+    border: 1px solid #ffffff15;
+    border-radius: 8px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--purple);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #ffffff10;
+    color: var(--text);
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* MOBILE */
+
+@media(max-width:900px) {
+    .hero-content,
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .services-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #10101b;
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .profile-card {
+        width: 260px;
+        height: 300px;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    section {
+        padding: 70px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">PORTFOLIO.</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="glow"></div>
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+            <div class="tag">WELCOME TO MY CREATIVE WORLD</div>
+
+            <h1>Hello, I'm<br>
+                <span>Your Name</span>
+            </h1>
+
+            <p>
+                Creative Designer | Video Editor | Developer |
+                Content Creator. I create digital experiences
+                that combine creativity, technology and innovation.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">Explore My Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="profile-card">
+                🚀
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About <span>Me</span></h2>
+            <p>Discover my journey and creative passion</p>
+        </div>
+
+        <div class="about">
+
+            <div class="about-box">
+                <h3>Who Am I?</h3>
+
+                <p>
+                    I am a passionate creative professional interested
+                    in business, technology, digital marketing,
+                    video editing and website development.
+                    I enjoy learning new skills and transforming
+                    ideas into creative digital projects.
+                </p>
+                <br>
+                <p>
+                    My goal is to create meaningful work,
+                    build innovative projects and continuously
+                    improve my professional skills.
+                </p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Creative Projects</p>
+                </div>
+
+                <div class="stat">
+                    <h3>5+</h3>
+                    <p>Skills</p>
+                </div>
+
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Passion</p>
+                </div>
+
+                <div class="stat">
+                    <h3>∞</h3>
+                    <p>Ideas</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+            <p>Things I love learning and creating</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>💻 Development</h3>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>HTML</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress"><div data-width="85%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>CSS</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress"><div data-width="75%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>JavaScript</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="progress"><div data-width="60%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>🎬 Creative</h3>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Video Editing</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress"><div data-width="80%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Content Creation</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress"><div data-width="75%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Graphic Design</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress"><div data-width="70%"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>📊 Business</h3>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Marketing</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress"><div data-width="80%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Finance</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress"><div data-width="70%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Business Strategy</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress"><div data-width="75%"></div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Creative <span>Projects</span></h2>
+            <p>Some of my recent work</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-image">🌐</div>
+                <div class="project-info">
+                    <h3>Website Design</h3>
+                    <p>A modern responsive website designed
+                    with HTML, CSS and JavaScript.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🎥</div>
+                <div class="project-info">
+                    <h3>Cinematic Video</h3>
+                    <p>Creative video editing with cinematic
+                    transitions and storytelling.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📱</div>
+                <div class="project-info">
+                    <h3>Social Media Campaign</h3>
+                    <p>Creative content and digital marketing
+                    campaign for social platforms.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🤖</div>
+                <div class="project-info">
+                    <h3>AI Creative Project</h3>
+                    <p>AI-powered content generation,
+                    design and creative experiments.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📊</div>
+                <div class="project-info">
+                    <h3>Business Analytics</h3>
+                    <p>Data analysis and visualization
+                    project using business information.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚀</div>
+                <div class="project-info">
+                    <h3>Startup Idea</h3>
+                    <p>A business concept developed with
+                    market research and strategy.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>My <span>Services</span></h2>
+            <p>What I can help you with</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Website Development</h3>
+                <p>Modern websites, landing pages
+                and responsive designs.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video Editing</h3>
+                <p>Creative reels, cinematic videos,
+                advertisements and social content.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Creative Design</h3>
+                <p>Posters, branding, social media
+                graphics and visual content.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Digital Marketing</h3>
+                <p>Social media strategies,
+                content planning and promotions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI Content Creation</h3>
+                <p>AI-assisted images, videos,
+                prompts and digital creativity.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>Business Ideas</h3>
+                <p>Business planning, research,
+                creative strategies and innovation.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Let's <span>Connect</span></h2>
+            <p>Have a project or idea? Let's work together.</p>
+        </div>
+
+        <div class="contact">
+
+            <p>
+                I am always interested in new opportunities,
+                creative projects and collaborations.
+                Feel free to contact me.
+            </p>
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+
+                <input type="text" id="name"
+                placeholder="Your Name" required>
+
+                <input type="email" id="email"
+                placeholder="Your Email" required>
+
+                <input type="text" id="subject"
+                placeholder="Subject" required>
+
+                <textarea id="message"
+                placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="btn primary">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Your Name | Creative Portfolio</p>
+    <p>Designed with ❤️ and creativity</p>
+</footer>
+
+<script>
+
+// Mobile Menu
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+// Close menu when clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
+
+// Animated Skill Bars
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.querySelectorAll(".progress div").forEach(bar => {
+                bar.style.width = bar.dataset.width;
+            });
+        }
+    });
+});
+
+document.querySelectorAll(".skill-card").forEach(card => {
+    observer.observe(card);
+});
+
+// Contact Form
+function sendMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const mail = "YOUR_EMAIL@gmail.com";
+
+    const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        message;
+
+    window.location.href =
+        "mailto:" + mail +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+}
+
+</script>
+
+</body>
+</html>
